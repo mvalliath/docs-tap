@@ -155,6 +155,8 @@ Tanzu Application Platform is a modular, composable platform that comprises the 
 
   The kpack CLI tool, kp, can aid in managing kpack resources. Build Service helps you
   develop and automate containerized software workflows securely and at scale.
+  
+  For information on configuring Tanzu Build Service in TAP please see [Configuring Tanzu Build Service properties on a workload](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-about-package-profiles.html)
 
 - **[Tanzu Developer Tools for VS Code](vscode-extension/about.md)**
 
