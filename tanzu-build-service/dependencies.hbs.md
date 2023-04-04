@@ -26,10 +26,6 @@ To ensure dependency compatibility, Tanzu Build Service only releases patches fo
 dependencies in patch versions of Tanzu Application Platform.
 For upgrade instructions, see [Upgrade the full dependencies package](../upgrading.md#full-profile-upgrade-tbs-deps).
 
-To upgrade Tanzu Build Service dependencies outside of Tanzu Application Platform releases, use the
-`kpack` CLI. This enables you to consume new versions of buildpacks and stacks and remediate
-vulnerabilities more quickly. For more information, see [Updating Build Service Dependencies](https://docs.vmware.com/en/Tanzu-Build-Service/1.10/vmware-tanzu-build-service/updating-deps.html#bulk-update).
-
 By default, Tanzu Build Service is installed with the `lite` set of dependencies,
 which are smaller-footprint and contain a subset of the buildpacks and stacks in
 the `full` set of dependencies.
@@ -46,6 +42,18 @@ kubectl get clusterbuilder -o yaml
 ```
 
 Cluster builders contain stack and buildpack metadata.
+
+## <a id="install"></a> Updating dependencies 
+
+New versions of dependencies (buildpacks, stacks, builders) are available in new versions of Tanzu Application Platform. If you are seeking to update your dependencies, we encourage you to update to the latest patch version of Tanzu Application Platform. 
+* If you are using lite dependencies, simply upgrade to the latest patch version of Tanzu Application Platform to update your dependencies. 
+* If you are using full dependencies, you will need to complete a few extra steps to update your dependencies. In this case, please see instructions on [Upgrading the full dependencies package](../upgrading.md#full-profile-upgrade-tbs-deps).
+
+Note that when Tanzu Application Platform is upgraded, new dependencies are installed which might cause workload images to rebuild.
+
+Using the dependencies packaged within a particular version of Tanzu Application Platform ensures that your Tanzu Build Service dependencies are compatible with the other components of Tanzu Application Platform. Therefore, we do not encourage updating dependencies outside of consuming new versions of Tanzu Application Platform. However, it is possible to do with the `kpack` CLI. Using the `kpack` CLI enables you to consume new versions of buildpacks and stacks and remediate vulnerabilities more quickly. Please see [Updating Build Service Dependencies](https://docs.vmware.com/en/Tanzu-Build-Service/1.10/vmware-tanzu-build-service/updating-deps.html#bulk-update) for more information. Note: in order to follow the above instructions, you will need the `kpack` CLI. If you do not have the `kpack` CLI installed, you will need to download it from [Tanzu Network](https://network.pivotal.io/products/build-service/). 
+
+
 
 ## <a id="bionic-vs-jammy"></a> Bionic and Jammy stacks
 
